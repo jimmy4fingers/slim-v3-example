@@ -4,8 +4,6 @@ RUN apt-get update \
     && apt-get install zip -y \
     && apt-get install unzip -y
 
-RUN a2enmod rewrite
-
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "if (hash_file('SHA384', 'composer-setup.php') === '$(curl -s https://composer.github.io/installer.sig)')  { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
     && php composer-setup.php \
@@ -13,5 +11,4 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && chmod +x composer.phar \
     && mv composer.phar /usr/local/bin/composer
 
-COPY git/ .
-RUN composer install -a
+RUN composer install -a; exit 0

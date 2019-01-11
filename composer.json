@@ -1,0 +1,10 @@
+{
+    "name": "root/app",
+    "authors": [
+        {
+            "name": "james lee",
+            "email": "james.lee@missguided.com"
+        }
+    ],
+    "require": {}
+}
