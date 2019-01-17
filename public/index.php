@@ -51,6 +51,11 @@ $c['\App\Controllers\PaymentController'] = function ($c) {
     );
 };
 
+// factory in the container
+$c['EntityFactory'] = $c->factory(function ($c) {
+    return new \App\Entities\Entity();
+});
+
 $app = new \Slim\App($c);
 
 // middleware
