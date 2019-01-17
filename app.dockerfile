@@ -1,5 +1,7 @@
 FROM php:7.2.6-fpm-stretch
 
+COPY env/php//php.ini /usr/local/etc/php/
+
 RUN apt-get update \
     && apt-get install zip -y \
     && apt-get install unzip -y
@@ -12,3 +14,4 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
 
 RUN composer install -a; exit 0
+
